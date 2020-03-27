@@ -17,15 +17,12 @@ video: Chapter 2 - Part 3
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t)
  put them here: 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+bool
+char
+int
+float
+double
+void
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration function.
     give each declaration an initial value
@@ -66,9 +63,33 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
     
+    //bool
+    bool enableControl = true;
+    bool bypassFilter = false;
+    bool channelOn = true;
+
+    //char
+    char nullChar = '\0';
+    char letterA = 'A';
+    char dashChar = '-';
+
+    //int
+    int healthLeft = 100;
+    int damagePoint = 20;
+    int characterAge = 27;
+
+    //float
+    float pi = 3.14f;
+    float euler = 2.71f;
+    float golden = 1.61f;
+
+    //double
+    double bigFloatingDouble = 299792458.8937238;
+    double eulerPrecise = 2.7182818284;
+    double goldenPrecise = 1.6180339887498948482;
+
     
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, enableControl, bypassFilter, channelOn, nullChar, letterA, dashChar, healthLeft, damagePoint, characterAge, pi, euler, golden, bigFloatingDouble, eulerPrecise, goldenPrecise); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -83,42 +104,78 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+int checkEnemyHealth(int enemyId)
+{ 
+    ignoreUnused(enemyId); //passing each function parameter to the ignoreUnused() function
+    return {}; //if your function returns something other than void, add 'return {};' at the end of it.
+} 
 /*
  2)
  */
-
+void cookMeal(int mealId, int cookingDuration = 10)
+{
+    ignoreUnused(mealId, cookingDuration);
+}
 /*
  3)
  */
-
+float multiply(float number1, float number2)
+{
+    ignoreUnused(number1, number2);
+    return {};
+}
 /*
  4)
  */
-
+float randomFloat()
+{
+    return {};
+}
 /*
  5)
  */
-
+void pushButton(int buttonId=0)
+{
+    ignoreUnused(buttonId);
+}
 /*
  6)
  */
-
+float calculateCircularArea(float radius)
+{
+    ignoreUnused(radius);
+    return{};
+}
 /*
  7)
  */
-
+char biggerCharacter(char character)
+{
+    ignoreUnused(character);
+    return{};
+}
 /*
  8)
  */
-
+double calculatePi(int decimalPlaces)
+{
+    ignoreUnused(decimalPlaces);
+    return{};
+}
 /*
  9)
  */
-
+void rateRestaurant(int restaurantId, int rating=5)
+{
+    ignoreUnused(restaurantId,  rating);
+}
 /*
  10)
  */
+void pushCode()
+{
+
+}
 
 int main()
 {
@@ -126,27 +183,30 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    float enemyHealthLeft = checkEnemyHealth(4);
     //2)
-    
+    cookMeal(5);
     //3)
-    
+    float squareOfFive = multiply(5, 5);
     //4)
-    
+    float someRandomFloat = randomFloat();
     //5)
-    
+    pushButton();
+    pushButton(1);
+    pushButton(3);
     //6)
-    
+    float circleArea  = calculateCircularArea(5);
     //7)
-    
+    char letterA = biggerCharacter('a');
     //8)
-    
+    auto pi =  calculatePi(2); //  3.14
+    auto piLong = calculatePi(10); // 3.1415926535
     //9)
-    
+    rateRestaurant(3, 4);
     //10)
+    pushCode();
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, enemyHealthLeft, squareOfFive, someRandomFloat, circleArea,piLong, letterA, pi);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
